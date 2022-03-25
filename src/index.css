@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
+@layer components {
+  .App {
+    @apply h-screen w-screen text-gray-300 relative;
+  }
+  .App:before {
+    content: "";
+    filter: blur(3px);
+    background: url("/images/background.jpg") no-repeat;
+    background-size: 100% 100%;
+    z-index: -1;
+    @apply absolute h-screen w-screen;
+  }
+}
 @tailwind utilities;
