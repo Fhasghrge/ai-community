@@ -1,6 +1,6 @@
 export default function Profile() {
   return (
-    <div className="w-2/5 m-auto mt-3">
+    <div className="w-[700px] m-auto mt-3">
       <header className="flex items-center">
         <div className="w-18 h-18 bg-gray-600 rounded-full flex justify-center items-center">
           <img className="w-16 h-16" src="https://avatars.dicebear.com/api/adventurer/shuangddfsdffsdffsd.svg" alt="" />

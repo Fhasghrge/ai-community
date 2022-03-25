@@ -1,6 +1,6 @@
 export default function Login() {
   return (
-    <div className="w-2/5 m-auto border-2 rounded-lg mt-20 border-gray-500 shadow-xl">
+    <div className="w-[500px] m-auto border-2 rounded-lg mt-20 border-gray-500 shadow-xl">
       <div className="switch flex text-xl border-b-2 text-center border-gray-500" >
         <div className="w-1/2 border-r-2 border-gray-500 py-2">登录</div>
         <div className="w-1/2 py-2">注册</div>

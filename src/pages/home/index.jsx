@@ -35,7 +35,7 @@ const news = [
 export default function Home() {
   return (
     <div>
-      <div className="picture border border-gray-500 border-t-0 rounded-sm relative w-2/3 h-80 m-auto overflow-hidden shadow">
+      <div className="picture border border-gray-500 border-t-0 rounded-sm relative w-2/3 h-96 m-auto overflow-hidden shadow">
         <img className='w-full absolute' src={RobotPic} />
         <div className='absolute top-2/3 left-2/3 text-xl text-right text-gray-300'>
           <div> 人工神经网络模型</div>

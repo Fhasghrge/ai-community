@@ -1,6 +1,6 @@
 export default function Encrypt() {
   return (
-    <div className="w-3/5 m-auto p-5 pl-16 mt-4">
+    <div className="w-3/5 m-auto p-5 pl-16 mt-4 flex flex-col items-center">
       <div className="form flex flex-col space-y-9">
         <div className="flex">
           <span className="w-20">文件上传:</span>
