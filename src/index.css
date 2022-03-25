@@ -2,7 +2,7 @@
 @tailwind components;
 @layer components {
   .App {
-    @apply h-screen w-screen text-gray-300 relative;
+    @apply h-screen w-screen text-gray-300 relative overflow-hidden;
   }
   .App:before {
     content: "";
@@ -10,7 +10,11 @@
     background: url("/images/background.jpg") no-repeat;
     background-size: 100% 100%;
     z-index: -1;
-    @apply absolute h-screen w-screen;
+    @apply absolute h-screen w-screen overflow-hidden scale-105;
+  }
+  * {
+    margin: 0;
+    padding: 0
   }
 }
 @tailwind utilities;

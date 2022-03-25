@@ -13,7 +13,10 @@ const news = [
   {
     title: '订单滚动',
     newlists: [
-
+      '下单时间：20220302192313客户：小**',
+      '下单时间：20220302192445客户：成*',
+      '下单时间：20220302193617客户：间***',
+      '下单时间：20220302193636客户：是**'
     ]
   },
   {
@@ -28,7 +31,9 @@ const news = [
   {
     title: '合作方',
     newlists: [
-
+      '成都大象分形智能科技有限公司',
+      '（入驻）攀枝花天一科技',
+      '（入驻）成美智能制造'
     ]
   }
 ]
@@ -57,10 +62,10 @@ function NewItem({ title, newlists = [] }) {
   return (
     <div className='p-4'>
       <div className="title text-center text-xl font-bold">{title}</div>
-      <div className='indent-2 flex flex-col space-y-2 text-gray-300 text-sm mt-2'>
+      <div className='indent-2 flex flex-col space-y-2 text-gray-300 text-sm mt-2 pl-10'>
         {
           newlists.map((item, index) => (
-            <div key={index} className='truncate hover:underline hover:cursor-pointer'>{index + 1} :{item}</div>
+            <div key={index} className='truncate hover:underline hover:cursor-pointer'>{index + 1}. {item}</div>
           ))
         }
       </div>

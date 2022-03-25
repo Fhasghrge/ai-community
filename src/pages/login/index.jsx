@@ -16,7 +16,7 @@ export default function Login() {
         </div>
         <div className="text-sm text-gray-400">忘记密码？</div>
       </div>
-      <div className="use-others py-10 px-16 text-gray-400 text-center">
+      <div className="use-others pt-2 pb-6 px-16 text-gray-400 text-center">
         <div>或用下面方式登录：</div>
         <div className="flex justify-center space-x-10 text-xs text-center mt-4">
           <div>

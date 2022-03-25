@@ -1,3 +1,9 @@
+const questions = [
+  'uu们，多时间尺度3D卷积神经网络的步态识别中MT3D模型的局部变换模型怎么搞呀?',
+  '有研究深度通用线性嵌入的跨视角步态识别的大佬吗?求助!',
+  '知识图谱构建流程原型、工具、数据、表示、推理以及可视化',
+  '日常遇到的错误集合[更新中，待分类]'
+]
 export default function Profile() {
   return (
     <div className="w-[700px] m-auto mt-3">
@@ -25,7 +31,13 @@ export default function Profile() {
       </div>
       <div className="mt-8">
         <div className="mb-2">你可能会感兴趣的话题:</div>
-        <div className="h-20 border rounded-lg"></div>
+        <div className="border h-40 rounded-lg flex flex-col space-y-2 indent-4 py-2 overflow-scroll">
+          {
+            questions.map(item => (
+              <div className="text-gray-400" key={item}>{item}</div>
+            ))
+          }
+        </div>
       </div>
     </div>
   )
