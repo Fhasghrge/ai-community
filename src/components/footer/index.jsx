@@ -4,9 +4,9 @@ export default function Footer () {
       <div className='text-base'>联系我们：</div>
       <div className="detailWays">
         <div>15303576100</div>
-        <div>2528234964@qq.com</div>
+        <div>18622975034@163.com</div>
       </div>
-      <div className="address ml-10">中国四川成都市电子科技大学</div>
+      <div className="address ml-10">四川省成都市电子科技大学</div>
     </div>
   )
 }
