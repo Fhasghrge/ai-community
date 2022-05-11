@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate as RouteNavigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'antd/dist/antd.css';
 import Footer from './components/footer';
 import Navigate from './components/navigates';
 import Header from './components/header';
@@ -11,6 +12,8 @@ import Encrypt from './pages/encrypt';
 import Login from './pages/login';
 import Profile from './pages/profile';
 import NoFound from './pages/NoFound'
+import Detail from './pages/detail';
+import Search from './pages/search';
 
 function App() {
 
@@ -29,6 +32,8 @@ function App() {
           <Route path='/encrypt' element={<Encrypt />} />
           <Route path='/login' element={<Login />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/detail/:articleId' element={<Detail />} />
+          <Route path='/search/:title' element={<Search />} />
           <Route path='*' element={<NoFound />} />
         </Routes>
       </main>

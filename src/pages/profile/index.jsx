@@ -4,7 +4,10 @@ const questions = [
   '知识图谱构建流程原型、工具、数据、表示、推理以及可视化',
   '日常遇到的错误集合[更新中，待分类]'
 ]
+import { useInfos } from "../../hooks";
+
 export default function Profile() {
+  const { loading, infos } = useInfos();
   return (
     <div className="w-[700px] m-auto mt-3 text-gray-700">
       <header className="flex items-center">
@@ -12,7 +15,7 @@ export default function Profile() {
           <img className="w-16 h-16" src="https://avatars.dicebear.com/api/adventurer/shuangddfsdffsdffsd.svg" alt="" />
         </div>
         <div className="ml-4">
-          <div className="font-bold text-xl">超级骆驼</div>
+          <div className="font-bold text-xl">{infos?.name || '未登录'}</div>
           <div className="text-xs text-gray-500">编辑资料</div>
         </div>
       </header>

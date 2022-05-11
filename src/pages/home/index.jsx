@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import * as Api from '../../apis';
 import HomeImg from '@/images/homeImg.png';
 
 const news = [
@@ -11,7 +14,7 @@ const news = [
     ]
   },
   {
-    title: '订单滚动',
+    title: 'AI论坛',
     newlists: [
       '下单时间：20220302192313客户：小**',
       '下单时间：20220302192445客户：成*',
@@ -20,7 +23,7 @@ const news = [
     ]
   },
   {
-    title: 'AI论坛',
+    title: '订单滚动',
     newlists: [
       'uu们，多时间尺度3D卷积神经网络的步态识别中MT3D模型的局部变换模型怎么搞呀?',
       '有研究深度通用线性嵌入的跨视角步态识别的大佬吗?求助!',
@@ -37,14 +40,35 @@ const news = [
     ]
   }
 ]
+const useList = () => {
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    Promise.all([0,1,2,3].map(item => {
+      return Api.getAriList(item).then(res => res.data?.slice(-4,) || [])
+    })).then(res => {
+      news.forEach((item, index) => {
+        item.newlists = res[index]
+      })
+      setList(news)
+    })
+  }, [])
+
+  return {
+    list,
+    loading
+  }
+}
+
 export default function Home() {
+  const { loading, list } = useList()
   return (
     <div>
       <div className="picture relative w-full h-96 overflow-hidden">
         <img className='w-full h-full object-fill' src={HomeImg} />
       </div>
       <div className="news grid grid-cols-2 w-2/3 m-auto">
-        {news.map(item =>
+        {list.map(item =>
           <NewItem key={item.title} title={item.title} newlists={item.newlists} />
         )}
       </div>
@@ -55,13 +79,25 @@ export default function Home() {
 
 
 function NewItem({ title, newlists = [] }) {
+  const navigate = useNavigate()
+  const clicktoDetail = (articleId) => {
+    navigate('/detail/' + articleId)
+  }
   return (
     <div className='p-4'>
       <div className="title text-center text-xl font-bold text-blue-500">{title}</div>
       <div className='indent-2 flex flex-col space-y-2 text-gray-700 text-sm mt-2 pl-10'>
         {
           newlists.map((item, index) => (
-            <div key={index} className='truncate hover:underline hover:cursor-pointer'>{index + 1}. {item}</div>
+            <div 
+              key={index} 
+              className='truncate hover:underline hover:cursor-pointer'
+              onClick={() => {
+                if(item.category === 1 | item.category === 0) {
+                  clicktoDetail(item.articleId)
+                }
+              }}
+            >{index + 1}. {item.title}</div>
           ))
         }
       </div>
