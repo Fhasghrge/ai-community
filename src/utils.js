@@ -48,3 +48,7 @@ watermark.set = str => {
 };
 
 export default watermark;
+
+export const checkParams = (params) => {
+  return Object.values(params).every(item => !!item.trim())
+}

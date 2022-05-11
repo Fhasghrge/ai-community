@@ -4,17 +4,24 @@
   .App {
     @apply h-screen w-screen text-gray-300 relative overflow-hidden;
   }
-  .App:before {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .inputel {
+    @apply bg-gray-300 opacity-50 rounded-md text-black indent-2 w-60;
+  }
+  .community:before {
     content: "";
     filter: blur(3px);
-    background: url("/images/background.jpg") no-repeat;
+    background: url("/images/commBg.png") no-repeat;
     background-size: 100% 100%;
     z-index: -1;
     @apply absolute h-screen w-screen overflow-hidden scale-105;
   }
-  * {
-    margin: 0;
-    padding: 0
+  .picture:before {
+    content: '基于神经网络模型加密技术的交互平台';
+    @apply absolute bottom-1/4 left-2/3 text-xl text-right text-gray-300
   }
 }
 @tailwind utilities;

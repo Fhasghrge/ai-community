@@ -1,4 +1,4 @@
-import RobotPic from '@/images/robot.jpg';
+import HomeImg from '@/images/homeImg.png';
 
 const news = [
   {
@@ -40,12 +40,8 @@ const news = [
 export default function Home() {
   return (
     <div>
-      <div className="picture border border-gray-500 border-t-0 rounded-sm relative w-2/3 h-96 m-auto overflow-hidden shadow">
-        <img className='w-full absolute' src={RobotPic} />
-        <div className='absolute top-2/3 left-2/3 text-xl text-right text-gray-300'>
-          <div> 人工神经网络模型</div>
-          <div className='text-sm mt-3'>加密保护技术</div>
-        </div>
+      <div className="picture relative w-full h-96 overflow-hidden">
+        <img className='w-full h-full object-fill' src={HomeImg} />
       </div>
       <div className="news grid grid-cols-2 w-2/3 m-auto">
         {news.map(item =>
@@ -61,8 +57,8 @@ export default function Home() {
 function NewItem({ title, newlists = [] }) {
   return (
     <div className='p-4'>
-      <div className="title text-center text-xl font-bold">{title}</div>
-      <div className='indent-2 flex flex-col space-y-2 text-gray-300 text-sm mt-2 pl-10'>
+      <div className="title text-center text-xl font-bold text-blue-500">{title}</div>
+      <div className='indent-2 flex flex-col space-y-2 text-gray-700 text-sm mt-2 pl-10'>
         {
           newlists.map((item, index) => (
             <div key={index} className='truncate hover:underline hover:cursor-pointer'>{index + 1}. {item}</div>

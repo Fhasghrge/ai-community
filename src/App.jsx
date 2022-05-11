@@ -1,4 +1,6 @@
 import { Routes, Route, Navigate as RouteNavigate } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/footer';
 import Navigate from './components/navigates';
 import Header from './components/header';
@@ -14,11 +16,11 @@ function App() {
 
   return (
     <div className="App h-screen overflow-hidden flex flex-col justify-between">
-      <header>
+      <header className='bg-slate-500'>
         <Header />
         <Navigate />
       </header>
-      <main className='h-full overflow-scroll pb-10 mt-1'>
+      <main className='h-full overflow-scroll pb-10'>
         <Routes>
           <Route exact path='/' element={<RouteNavigate to='/home' replace />}></Route>
           <Route path='/home' element={<Home />} />
@@ -33,6 +35,18 @@ function App() {
       <footer>
         <Footer />
       </footer>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='dark'
+      />
     </div>
   )
 }

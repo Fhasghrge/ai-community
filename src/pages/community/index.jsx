@@ -28,8 +28,8 @@ const questions = [
 export default function Community() {
   return (
     <div>
-      <div className="flex w-2/3 m-auto mt-8 space-x-2">
-        <div className="w-full">
+      <div className="community flex box-border pt-2 m-auto space-x-2 justify-center">
+        <div className="w-3/5">
           {
             questions.map((item) => (
               <Question key={item.text} item={item}  />
@@ -52,9 +52,9 @@ export default function Community() {
 
 function Question({ item }) {
   return (
-    <div className="p-2 mb-8 border border-gray-400 rounded-md bg-gray-600 shadow-md">
+    <div className="p-2 mb-8 border border-gray-400 rounded-md bg-gray-500 shadow-md">
       <div className="mb-5">{item?.text}</div>
-      <div className="actions flex justify-around border border-gray-500 rounded-lg py-1">
+      <div className="actions flex justify-around border border-gray-400 rounded-lg py-1">
         <div className="flex items-center space-x-1">
           <svg t="1648200775000" className="w-6 h-6" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7383" width="200" height="200"><path d="M581.674667 170.666667c6.72 0 18.538667 1.429333 27.584 4.352 44.544 14.442667 70.186667 61.76 59.797333 109.12l-1.066667 4.437333-39.701333 148.906667h157.269333c19.093333 0 37.973333 7.082667 50.773334 21.248 14.293333 15.829333 19.861333 36.778667 15.616 57.109333l-1.066667 4.352-82.922667 295.253333a51.882667 51.882667 0 0 1-46.08 37.76l-3.84 0.128H298.666667V452.501333c84.949333-18.389333 209.194667-244.373333 209.194666-244.373333C525.525333 184.170667 546.944 170.666667 581.674667 170.666667zM234.666667 448v405.333333H170.666667V448h64z m347.008-213.333333c-9.6 0-13.546667 1.109333-18.453334 6.613333l-1.706666 2.005333-8.064 14.08-8.64 14.613334a1342.848 1342.848 0 0 1-63.189334 96.426666c-24.512 33.92-48.597333 63.146667-72.234666 86.464-15.722667 15.509333-31.146667 28.437333-46.72 38.464V789.333333h346.154666L789.333333 502.485333c0-0.277333-0.128-0.448-0.490666-0.853333 0.298667 0.341333-0.853333-0.149333-3.285334-0.149333H544.981333l61.162667-229.44c4.394667-16.426667-3.626667-31.936-16.597333-36.138667a46.016 46.016 0 0 0-7.893334-1.237333z" p-id="7384" fill="#e6e6e6"></path></svg>
           <span>

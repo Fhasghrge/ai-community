@@ -30,8 +30,7 @@ export default function Header() {
           </div>
       }
       <div className='flex space-x-3 text-base'>
-        <Link to='/login'>登录/注册</Link>
-        <div>English</div>
+        <Link to='/login'>登录</Link>
         <Link to='/profile'>我的</Link>
       </div>
     </div>

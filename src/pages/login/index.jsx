@@ -1,20 +1,74 @@
-export default function Login() {
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import * as Api from '../../apis';
+import { checkParams } from '../../utils';
+
+export default function Switch() {
+  const [toggle, setToggle] = useState(true);
+
   return (
-    <div className="w-[500px] m-auto border-2 rounded-lg mt-20 border-gray-500 shadow-xl">
+    <div className="w-[500px] m-auto border-2 rounded-lg mt-20 border-gray-500 shadow-xl text-gray-700">
       <div className="switch flex text-xl border-b-2 text-center border-gray-500" >
-        <div className="w-1/2 border-r-2 border-gray-500 py-2">登录</div>
-        <div className="w-1/2 py-2">注册</div>
+        <div
+          className="w-1/2 border-r-2 border-gray-500 py-2"
+          onClick={() => setToggle(true)}
+        >登录</div>
+        <div
+          className="w-1/2 py-2"
+          onClick={() => setToggle(false)}
+        >注册</div>
       </div>
-      <div className="form w-4/5 text-right m-auto flex flex-col space-y-12 text-lg mt-8">
+      {
+        toggle ? <Login /> : <Register />
+      }
+    </div>
+  )
+}
+
+function Login() {
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  return (
+    <>
+      <div className="form w-4/5 text-right m-auto flex flex-col space-y-8 text-lg mt-8 text-gray-700">
         <div className="flex m-auto space-x-3">
           <span className="w-20">用户名 </span>
-          <input className='bg-gray-300 opacity-30 rounded-md' type="text" />
+          <input
+            className='inputel'
+            type="text"
+            onChange={e => setName(e.target.value)}
+          />
         </div>
         <div className="flex m-auto space-x-3">
           <span className='w-20 tracking-bigger'>密码</span>
-          <input className="bg-gray-300 opacity-30 rounded-md" type="text" />
+          <input
+            className="inputel"
+            type='password'
+            onChange={e => setPassword(e.target.value)}
+          />
         </div>
-        <div className="text-sm text-gray-400">忘记密码？</div>
+        <div
+          className='text-center bg-blue-700 opacity-90 w-max mx-auto py-1 px-20 rounded text-gray-900'
+          onClick={() => {
+            const params = { name, password };
+            if (!checkParams(params)) {
+              toast('所有的选项必填')
+              return;
+            }
+            Api.login(params).then(res => {
+              if (res.code === 0) {
+                toast('登录成功🎉', {
+                  autoClose: 2000,
+                })
+                setTimeout(() => {
+                  navigate('/home')
+                }, 3000)
+              }
+            })
+          }}
+        >登录</div>
       </div>
       <div className="use-others pt-2 pb-6 px-16 text-gray-400 text-center">
         <div>或用下面方式登录：</div>
@@ -29,6 +83,67 @@ export default function Login() {
           </div>
         </div>
       </div>
+    </>
+  )
+}
+
+function Register() {
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [gender, setGender] = useState('男');
+  const [school, setSchool] = useState('');
+  return (
+    <div className="form w-4/5 text-right m-auto flex flex-col space-y-8 text-lg mt-8 pb-10">
+      <div className="flex m-auto space-x-3">
+        <span className="w-20">用户名 </span>
+        <input
+          className='inputel'
+          type="text"
+          onChange={e => setName(e.target.value)}
+        />
+      </div>
+      <div className="flex m-auto space-x-3">
+        <span className='w-20 tracking-bigger'>密码</span>
+        <input
+          className="inputel"
+          type="password"
+          onChange={e => setPassword(e.target.value)}
+        />
+      </div>
+      <div className="flex m-auto space-x-3">
+        <span className='w-20 tracking-bigger'>性别</span>
+        <select
+          className='inputel'
+          name="gender"
+          onChange={e => setGender(e.target.value)}
+        >
+          <option value="男">男</option>
+          <option value="女">女</option>
+        </select>
+      </div>
+      <div className="flex m-auto space-x-3">
+        <span className='w-20 tracking-bigger'>学校</span>
+        <input
+          className="inputel"
+          type="text"
+          onChange={e => setSchool(e.target.value)}
+        />
+      </div>
+      <div
+        className='text-center bg-blue-700 opacity-90 w-max mx-auto py-1 px-24 rounded text-gray-900'
+        onClick={() => {
+          const params = { name, password, gender, school };
+          if (!checkParams(params)) {
+            toast('所有的选项必填')
+            return;
+          }
+          Api.register(params).then(res => {
+            if (res.code === 0) {
+              toast('注册成功🎉')
+            }
+          })
+        }}
+      >注册</div>
     </div>
   )
 }

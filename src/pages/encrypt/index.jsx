@@ -1,7 +1,11 @@
+import UploadImg from '@/images/uploadImg.png';
 export default function Encrypt() {
   return (
-    <div className="w-3/5 m-auto p-5 pl-16 mt-4 flex flex-col items-center">
-      <div className="form flex flex-col space-y-9">
+    <div >
+      <div className="w-full h-96 overflow-hidden">
+        <img className='w-full h-full object-fill' src={UploadImg} />
+      </div>
+      <div className="form flex w-1/3 m-auto flex-col space-y-9 text-gray-700 mt-10">
         <div className="flex">
           <span className="w-20">文件上传:</span>
           <input className='bg-gray-400 text-gray-800 rounded-md' type='file'/>
@@ -16,7 +20,7 @@ export default function Encrypt() {
           <span>（邮箱）</span>
         </div>
       </div>
-      <div className="payways mt-16">
+      <div className="payways mt-16 text-gray-700 w-1/3 m-auto">
         <div>支付方式：</div>
         <div className="pl-12 flex flex-col space-y-4">
           <div className="mt-4">
