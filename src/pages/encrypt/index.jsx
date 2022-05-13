@@ -1,4 +1,4 @@
-import UploadImg from '@/images/uploadImg.png';
+import UploadImg from '@/images/uploadImg.jpg';
 export default function Encrypt() {
   return (
     <div >

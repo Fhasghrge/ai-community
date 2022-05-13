@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import * as Api from '../../apis';
-import HomeImg from '@/images/homeImg.png';
+import HomeImg from '@/images/homeImg.jpg';
 
 const news = [
   {

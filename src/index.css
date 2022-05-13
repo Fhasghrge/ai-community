@@ -21,7 +21,7 @@
   }
   .picture:before {
     content: '基于神经网络模型加密技术的交互平台';
-    @apply absolute bottom-1/4 left-2/3 text-xl text-right text-gray-300
+    @apply absolute top-14 right-64 text-xl text-right text-gray-500 opacity-70
   }
 }
 @tailwind utilities;

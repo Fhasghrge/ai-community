@@ -8,10 +8,10 @@ export default function Switch() {
   const [toggle, setToggle] = useState(true);
 
   return (
-    <div className="w-[500px] m-auto border-2 rounded-lg mt-20 border-gray-500 shadow-xl text-gray-700">
-      <div className="switch flex text-xl border-b-2 text-center border-gray-500" >
+    <div className="w-[500px] m-auto border-2 rounded-lg mt-20 border-gray-300 shadow-xl text-gray-700 h-96">
+      <div className="switch flex text-xl border-b-2 text-center border-gray-300" >
         <div
-          className="w-1/2 border-r-2 border-gray-500 py-2"
+          className="w-1/2 border-r-2 border-gray-300 py-2"
           onClick={() => setToggle(true)}
         >登录</div>
         <div
@@ -50,7 +50,7 @@ function Login() {
           />
         </div>
         <div
-          className='text-center bg-blue-700 opacity-90 w-max mx-auto py-1 px-20 rounded text-gray-900'
+          className='text-center bg-blue-400 opacity-90 w-max mx-auto py-1 px-16 rounded text-gray-700 tracking-bigger'
           onClick={() => {
             const params = { name, password };
             if (!checkParams(params)) {
@@ -130,7 +130,7 @@ function Register() {
         />
       </div>
       <div
-        className='text-center bg-blue-700 opacity-90 w-max mx-auto py-1 px-24 rounded text-gray-900'
+        className='text-center bg-blue-400 opacity-90 w-max mx-auto py-1 px-16 rounded text-gray-700 tracking-bigger'
         onClick={() => {
           const params = { name, password, gender, school };
           if (!checkParams(params)) {

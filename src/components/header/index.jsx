@@ -42,7 +42,7 @@ export default function Header() {
         !loading &&
         <div className='flex space-x-3 text-base'>
           {!infos?.name && <Link to='/login'>
-            <div className='text-gray-700'>登录</div>
+            <div className='text-gray-300'>登录</div>
             </Link>
           }
           <Link to='/profile'>

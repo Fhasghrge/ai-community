@@ -16,7 +16,6 @@ import Detail from './pages/detail';
 import Search from './pages/search';
 
 function App() {
-
   return (
     <div className="App h-screen overflow-hidden flex flex-col justify-between">
       <header className='bg-slate-500'>

@@ -44,3 +44,27 @@ export const postArticle = async (params) => {
 export const searchArticle = async (title) => {
   return fetch('/api/article/search?title=' + title).then(res => res.json())
 }
+export const deleteArticle = (articleId) => {
+  return fetch('/api/article/info?articleid=' + articleId, {method: 'DELETE'}).then(res => res.json())
+}
+export const like = params => {
+  const formdata = new FormData();
+  Object.entries(params).forEach(([key, val]) => {
+    formdata.append(key, val)
+  })
+  return fetch('/api/article/like', {
+    method: 'POST',
+    body: formdata
+  }).then(res => res.json())
+}
+
+export const favorite = params => {
+  const formdata = new FormData();
+  Object.entries(params).forEach(([key, val]) => {
+    formdata.append(key, val)
+  })
+  return fetch('/api/article/Favorite', {
+    method: 'POST',
+    body: formdata
+  }).then(res => res.json())
+}

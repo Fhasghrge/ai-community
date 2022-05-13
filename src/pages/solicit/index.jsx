@@ -38,17 +38,18 @@ export default function Solicit() {
   return (
     <div>
       <div className="w-full h-96 overflow-hidden">
-        <img className='object-fill' src={PostListImg} />
+        <img className='object-fill w-full h-full' src={PostListImg} />
       </div>
       <div className="w-2/3 m-auto flex flex-col space-y-10 mt-6">
         {
-          list?.map(({ title, body, imgurl, articleId }) => (
+          list?.map(({ title, body, imgurl, articleId }, index) => (
             <ProjectItem 
               key={articleId} 
               id={articleId} 
               title={title} 
               detail={body} 
               imgurl={imgurl} 
+              index={index}
             />
           ))
         }
@@ -58,16 +59,16 @@ export default function Solicit() {
 }
 
 
-function ProjectItem({ title, detail, imgurl, id }) {
+function ProjectItem({ title, detail, imgurl, id, index }) {
   const naviagte = useNavigate();
   return (
     <div className="flex border p-4 rounded-lg shadow-lg border-gray-500">
       <div className='w-64 h-32 bg-gray-500 flex py-2'>
-        <img className="w-full" src={imgurl || '/images/img1.jpeg'} alt="" />
+        <img className="w-full" src={`/images/tech/${(index)%10}.jpeg`} alt="" />
       </div>
       <div className="w-full px-4">
         <div 
-          className="text-xl font-bold text-gray-700"
+          className="text-xl font-bold text-gray-700 hover:cursor-pointer hover:underline"
           onClick={() => naviagte('/detail/' + id)}
         >{title}</div>
         <div className="text-gray-500 h-20 text-ellipsis">{detail}</div>
