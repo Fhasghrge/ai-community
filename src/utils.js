@@ -8,13 +8,13 @@ let setWatermark = str => {
   }
 
   let can = document.createElement("canvas");
-  can.width = 200;
-  can.height = 100;
+  can.width = 100;
+  can.height = 80;
 
   let cans = can.getContext("2d");
   cans.rotate((-20 * Math.PI) / 180);
-  cans.font = "15px Vedana";
-  cans.fillStyle = "rgba(0, 0, 0, 0.40)";
+  cans.font = "12px Vedana";
+  cans.fillStyle = "rgba(0, 0, 0, 0.20)";
   cans.textAlign = "left";
   cans.textBaseline = "Middle";
   cans.fillText(str, can.width / 20, can.height);

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import * as Api from '../../apis';
 import { checkParams } from '../../utils';
 
-export default function Switch() {
+export default function Switch({ refreshInfo }) {
   const [toggle, setToggle] = useState(true);
 
   return (
@@ -20,13 +20,13 @@ export default function Switch() {
         >注册</div>
       </div>
       {
-        toggle ? <Login /> : <Register />
+        toggle ? <Login refreshInfo={refreshInfo} /> : <Register />
       }
     </div>
   )
 }
 
-function Login() {
+function Login({refreshInfo}) {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -62,6 +62,7 @@ function Login() {
                 toast('登录成功🎉', {
                   autoClose: 2000,
                 })
+                refreshInfo()
                 setTimeout(() => {
                   navigate('/home')
                 }, 3000)

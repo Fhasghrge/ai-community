@@ -14,12 +14,16 @@ import Profile from './pages/profile';
 import NoFound from './pages/NoFound'
 import Detail from './pages/detail';
 import Search from './pages/search';
+import { useInfos } from './hooks'
+
+
 
 function App() {
+  const infoobjs = useInfos()
   return (
     <div className="App h-screen overflow-hidden flex flex-col justify-between">
       <header className='bg-slate-500'>
-        <Header />
+        <Header {...infoobjs} />
         <Navigate />
       </header>
       <main className='h-full overflow-scroll pb-10'>
@@ -29,8 +33,8 @@ function App() {
           <Route path='/community' element={<Community />} />
           <Route path='/solicit' element={<Solicit />} />
           <Route path='/encrypt' element={<Encrypt />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/login' element={<Login refreshInfo={infoobjs.refresh} />} />
+          <Route path='/profile' element={<Profile {...infoobjs} />} />
           <Route path='/detail/:articleId' element={<Detail />} />
           <Route path='/search/:title' element={<Search />} />
           <Route path='*' element={<NoFound />} />

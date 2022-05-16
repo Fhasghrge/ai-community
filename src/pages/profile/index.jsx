@@ -4,10 +4,8 @@ const questions = [
   '知识图谱构建流程原型、工具、数据、表示、推理以及可视化',
   '日常遇到的错误集合[更新中，待分类]'
 ]
-import { useInfos } from "../../hooks";
 
-export default function Profile() {
-  const { loading, infos } = useInfos();
+export default function Profile({ loading, infos }) {
   return (
     <div className="w-[700px] m-auto mt-3 text-gray-700">
       <header className="flex items-center">

@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useInfos } from '../../hooks';
 const SearchShows = [
   '/community',
   '/home',
   '/solicit'
 ]
 
-export default function Header() {
+export default function Header({ infos, loading }) {
   const [searchKey, setsSearchKey] = useState('');
   const navigate = useNavigate()
   const location = useLocation();
-  const { loading, infos } = useInfos()
   return (
     <div className='flex justify-between p-3 text-lg'>
       <div className='flex space-x-2'>
