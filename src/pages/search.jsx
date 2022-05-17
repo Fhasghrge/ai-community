@@ -32,7 +32,7 @@ export default function Search() {
                 className="text-xl font-bold text-gray-700 hover:cursor-pointer hover:underline"
                 onClick={() => navigate('/detail/' + item.articleId)}
               >{item.title}</div>
-              <div className="text-gray-500 h-20 text-ellipsis">{item.body}</div>
+              <div className="text-gray-500 h-20 text-ellipsis">{item.body.slice(0 ,120)}{item.body.length > 120 && '...'}</div>
             </div>
           ))
           :
